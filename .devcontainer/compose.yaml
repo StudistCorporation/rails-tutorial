@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/workspace
+    ports:
+      - 3000:3000 # Rails
+      - 8888:8888 # Jupyter Notebook
+    stdin_open: true
+    tty: true
+    command: bash
