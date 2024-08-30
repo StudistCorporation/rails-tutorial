@@ -23,7 +23,6 @@
         // Formatter
         "esbenp.prettier-vscode",
         // Ruby/Rails
-        "Shopify.ruby-extensions-pack",
         "soutaro.steep-vscode",
         // Jupyter Notebook
         "ms-toolsai.jupyter"
