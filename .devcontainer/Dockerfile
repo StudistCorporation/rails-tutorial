@@ -35,6 +35,8 @@ RUN . $HOME/.asdf/asdf.sh \
 COPY .tool-versions /workspace/.tool-versions
 RUN . $HOME/.asdf/asdf.sh \
     && asdf install
+RUN . $HOME/.asdf/asdf.sh \
+    && cat .tool-versions | grep -v '#' | xargs -n 2 asdf install
 
 # Install packages for Python
 COPY notebooks/requirements.txt /workspace/requirements.txt

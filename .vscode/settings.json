@@ -1,8 +1,18 @@
 {
+  // Ruby
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnType": false
+  },
+
+  // Markdown
   "[markdown]": {
     "editor.formatOnSave": false
   },
 
   // CSpell
-  "cSpell.words": ["devcontainer"]
+  "cSpell.words": ["devcontainer", "devcontainers", "kanban"]
 }
