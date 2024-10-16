@@ -20,12 +20,10 @@
     "vscode": {
       "extensions": [
         "streetsidesoftware.code-spell-checker",
-        // Formatter
         "esbenp.prettier-vscode",
-        // Ruby/Rails
         "soutaro.steep-vscode",
-        // Jupyter Notebook
-        "ms-toolsai.jupyter"
+        "ms-toolsai.jupyter",
+        "rangav.vscode-thunder-client"
       ]
     }
   }
