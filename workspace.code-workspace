@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "workspace",
+      "path": "."
+    },
+    {
+      "name": "notebooks",
+      "path": "./notebooks"
+    },
+    {
+      "name": "kanban",
+      "path": "./kanban"
+    }
+  ],
+  "settings": {}
+}
