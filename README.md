@@ -30,8 +30,6 @@ Devcontainer が起動している状態で `notebooks/ruby_basics.ipynb` を開
 
 [Rails の教科書](https://railstutorial.jp/textbook)を使って、Rails の基礎を学びます。
 
-TBD
-
 ## タスク管理アプリ
 
 このリポジトリの本体が、タスク管理アプリのベースとなるリポジトリです。
