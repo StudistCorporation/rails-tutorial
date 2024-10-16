@@ -23,6 +23,7 @@ SHELL ["/bin/zsh", "-c"]
 # asdfのインストール
 ENV ASDF_VERSION=v0.14.1
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch $ASDF_VERSION \
+    && echo '. "$HOME/.asdf/asdf.sh"' >> ~/.bashrc \
     && echo '. "$HOME/.asdf/asdf.sh"' >> ~/.zshrc
 
 # Install & Configure asdf plugins
