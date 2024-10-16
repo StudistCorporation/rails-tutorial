@@ -1,4 +1,8 @@
 my_web_apps
+manual/db/*.sqlite3
+manual/db/*.sqlite3-journal
+manual/db/*.sqlite3-[0-9]*
+manual/config/master.key
 
 # Created by https://www.toptal.com/developers/gitignore/api/ruby,rails,node,visualstudiocode,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=ruby,rails,node,visualstudiocode,jupyternotebooks

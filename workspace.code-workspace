@@ -9,8 +9,8 @@
       "path": "./notebooks"
     },
     {
-      "name": "kanban",
-      "path": "./kanban"
+      "name": "manual",
+      "path": "./manual"
     }
   ],
   "settings": {}
