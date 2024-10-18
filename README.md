@@ -32,6 +32,7 @@ Devcontainer が起動している状態で `notebooks/ruby_basics.ipynb` を開
 
 ## マニュアル管理アプリ
 
-Ruby の基礎は、Jupyter Notebook を見ながら、実際にコマンドを実行してアプリを構築していきます。 
+マニュアル管理アプリは、Rails+Vueを使って簡易的なマニュアル閲覧アプリを作成します。
+Jupyter Notebook を見ながら、実際にコマンドを実行してアプリを構築していきます。 
 Devcontainer が起動している状態で `notebooks/manual.ipynb` を開くと、手順が見えるので`Terminal`上でコマンドを実行しながら進めていってください。
 
