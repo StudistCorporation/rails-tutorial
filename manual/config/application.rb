@@ -23,7 +23,7 @@ module Kanban
     config.active_record.query_log_tags_enabled = true
     config.active_record.query_log_tags = [
       # Rails query log tags:
-      :application, :controller, :action, :job,
+      :application, :controller, :action, :job
     ]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
