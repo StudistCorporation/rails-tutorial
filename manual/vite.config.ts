@@ -15,11 +15,7 @@ export default defineConfig({
     host: true,
     port: 3000,
     proxy: {
-      '/graphql': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-      },
-      '/graphiql': {
+      '^/api/.*$': {
         target: 'http://localhost:3001',
         changeOrigin: true,
       },
