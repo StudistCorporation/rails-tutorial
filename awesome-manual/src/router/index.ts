@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import ManualListView from '@/views/ManualListView.vue'
 import ManualView from '@/views/ManualView.vue'
 import ManualEditView from '@/views/ManualEditView.vue'
+import ManualNewView from '@/views/ManualNewView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,11 @@ const router = createRouter({
       path: '/manuals',
       name: 'manual-list',
       component: ManualListView,
+    },
+    {
+      path: '/manuals/new',
+      name: 'manual-new',
+      component: ManualNewView,
     },
     {
       path: '/manuals/:id',

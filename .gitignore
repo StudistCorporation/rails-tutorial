@@ -1,6 +1,7 @@
 my_web_apps
 notebooks/*
 manual/*
+awesome-manual/storage/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/ruby,rails,node,visualstudiocode,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=ruby,rails,node,visualstudiocode,jupyternotebooks
