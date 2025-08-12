@@ -20,6 +20,33 @@ module Api
         }
       end
 
+      # POST /api/v1/manuals
+      def create
+        @manual = Manual.new(manual_params)
+        
+        if @manual.save
+          render json: {
+            id: @manual.id,
+            title: @manual.title,
+            description: @manual.description,
+            tags: @manual.tags,
+            steps: @manual.steps.map { |step|
+              {
+                id: step.id,
+                title: step.title,
+                description: step.description,
+                position: step.position,
+                image_url: step.image.attached? ? url_for(step.image) : nil
+              }
+            },
+            updated_at: @manual.updated_at,
+            thumbnail_url: @manual.thumbnail.attached? ? url_for(@manual.thumbnail) : nil
+          }, status: :created
+        else
+          render json: { errors: @manual.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
+
       # GET /api/v1/manuals/:id
       def show
         render json: {

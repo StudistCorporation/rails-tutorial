@@ -50,6 +50,67 @@ export async function getManual(id: string): Promise<Manual> {
   return response.json()
 }
 
+export async function createManual(
+  manual: Partial<Manual>, 
+  thumbnailFile?: File | null
+): Promise<Manual> {
+  const hasImages = !!thumbnailFile
+  
+  if (hasImages) {
+    const formData = new FormData()
+    formData.append('manual[title]', manual.title || '')
+    formData.append('manual[description]', manual.description || '')
+    
+    // タグ名を配列として送信
+    manual.tags?.forEach(tag => {
+      formData.append('manual[tag_names][]', tag.name)
+    })
+    
+    // ステップ情報をJSON文字列として送信
+    if (manual.steps) {
+      formData.append('manual[steps_attributes]', JSON.stringify(manual.steps))
+    }
+    
+    // サムネイル画像
+    if (thumbnailFile) {
+      formData.append('manual[thumbnail]', thumbnailFile)
+    }
+    
+    const response = await fetch(`${API_BASE}/manuals`, {
+      method: 'POST',
+      body: formData
+    })
+    
+    if (!response.ok) {
+      throw new Error('Failed to create manual')
+    }
+    
+    return response.json()
+  } else {
+    // 画像がない場合は通常のJSON送信
+    const response = await fetch(`${API_BASE}/manuals`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        manual: {
+          title: manual.title,
+          description: manual.description,
+          tag_names: manual.tags?.map(tag => tag.name),
+          steps_attributes: manual.steps
+        }
+      })
+    })
+    
+    if (!response.ok) {
+      throw new Error('Failed to create manual')
+    }
+    
+    return response.json()
+  }
+}
+
 export async function updateManual(
   id: string, 
   manual: Partial<Manual>, 
