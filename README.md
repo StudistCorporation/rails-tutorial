@@ -134,3 +134,31 @@ Ruby の基礎は、Jupyter Notebook を利用して学びます。
 Jupyter Notebook を見ながら、実際にコマンドを実行してアプリを構築していきます。 
 `notebooks/manual.ipynb` を開くと、手順が見えるので`Terminal`上でコマンドを実行しながら進めていってください。
 
+## Awesome Manual アプリ（サンプル実装）
+
+`awesome-manual`ディレクトリには、Rails API + Vue.js + Vuetifyを使用したマニュアル管理システムの完成形が含まれています。
+
+### 機能
+
+- マニュアルの作成・編集・閲覧
+- タグによる分類
+- 画像アップロード（ActiveStorage使用）
+- ステップごとの手順管理
+- 検索・フィルタリング機能
+
+### 起動方法
+
+```bash
+cd awesome-manual
+
+# 初回セットアップ
+bundle install
+npm install
+bundle exec rails db:create
+bundle exec rails db:migrate
+bundle exec rails db:seed # サンプルデータの投入
+
+# サーバー起動
+bin/dev
+# http://localhost:3000 にアクセス
+```
