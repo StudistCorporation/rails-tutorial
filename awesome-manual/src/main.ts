@@ -9,13 +9,31 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+
+// MDI Icons
+import '@mdi/font/css/materialdesignicons.css'
+
 const vuetify = createVuetify({
   components,
   directives,
+  icons: {
+    defaultSet: 'mdi',
+  }
 })
 
+// Apollo
+import { DefaultApolloClient } from '@vue/apollo-composable'
+import { ApolloClient, InMemoryCache } from '@apollo/client/core'
+const cache = new InMemoryCache()
+const apolloClient = new ApolloClient({
+  cache,
+  uri: 'http://localhost:3000/graphql',
+})
 
 const app = createApp({
+  setup() {
+    provide(DefaultApolloClient, apolloClient)
+  },
   render: () => h(App),
 })
 
