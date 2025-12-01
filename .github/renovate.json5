@@ -1,18 +1,20 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["github>studistcorporation/.github:default.json5"],
-
-  branchPrefix: "develop/renovete-",
-  reviewers: [
-    "@corrupt952", // TODO: 運用が続くようであればチームに切り替え
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>studistcorporation/.github:default.json5',
   ],
-
+  branchPrefix: 'develop/renovete-',
+  reviewers: [
+    '@corrupt952',
+  ],
   platformAutomerge: true,
   packageRules: [
     {
-      matchPackagePatterns: ["cloudflare/cloudflared"],
-      minimumReleaseAge: "1 days",
+      minimumReleaseAge: '1 days',
       automerge: true,
+      matchPackageNames: [
+        '/cloudflare/cloudflared/',
+      ],
     },
   ],
 }
