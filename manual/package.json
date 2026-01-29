@@ -14,7 +14,7 @@
     "graphql:codegen": "graphql-codegen --config codegen.yaml"
   },
   "dependencies": {
-    "pinia": "^2.2.4",
+    "pinia": "^3.0.0",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5",
     "vuetify": "^3.7.2"
