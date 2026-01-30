@@ -10,5 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_16_120528) do
+ActiveRecord::Schema[8.1].define(version: 2025_08_07_075224) do
+  create_table "manuals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "title"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "manual_id", null: false
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["manual_id"], name: "index_steps_on_manual_id"
+  end
+
+  add_foreign_key "steps", "manuals"
 end

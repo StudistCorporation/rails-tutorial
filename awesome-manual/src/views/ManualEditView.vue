@@ -69,9 +69,12 @@ const addStep = () => {
 
 // ステップの削除
 const removeStep = (index: number) => {
-  if (manual.value.steps[index].id) {
+  const step = manual.value.steps[index]
+  if (!step) return
+
+  if (step.id) {
     // 既存のステップは削除フラグを立てる
-    manual.value.steps[index]._destroy = true
+    step._destroy = true
   } else {
     // 新規ステップは配列から削除
     manual.value.steps.splice(index, 1)
@@ -81,10 +84,11 @@ const removeStep = (index: number) => {
 // ステップの移動
 const moveStep = (index: number, direction: 'up' | 'down') => {
   const newIndex = direction === 'up' ? index - 1 : index + 1
-  if (newIndex >= 0 && newIndex < manual.value.steps.length) {
-    const temp = manual.value.steps[index]
-    manual.value.steps[index] = manual.value.steps[newIndex]
-    manual.value.steps[newIndex] = temp
+  const currentStep = manual.value.steps[index]
+  const targetStep = manual.value.steps[newIndex]
+  if (newIndex >= 0 && newIndex < manual.value.steps.length && currentStep && targetStep) {
+    manual.value.steps[index] = targetStep
+    manual.value.steps[newIndex] = currentStep
   }
 }
 
@@ -300,7 +304,7 @@ const visibleSteps = computed(() =>
               <v-chip-group>
                 <v-chip
                   v-for="tag in manual.tags"
-                  :key="tag"
+                  :key="tag.id"
                   closable
                   @click:close="removeTag(tag)"
                 >

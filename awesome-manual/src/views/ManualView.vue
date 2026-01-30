@@ -37,8 +37,9 @@ onMounted(async () => {
   try {
     manual.value = await getManual(manualId)
     // 最初のステップは展開しておく
-    if (manual.value.steps.length > 0 && manual.value.steps[0].id) {
-      expandedSteps.value.push(manual.value.steps[0].id)
+    const firstStep = manual.value.steps[0]
+    if (firstStep?.id) {
+      expandedSteps.value.push(firstStep.id)
     }
   } catch (error) {
     console.error('Failed to load manual:', error)
@@ -168,17 +169,6 @@ const editManual = () => {
                       max-height="400"
                       contain
                     />
-
-                    <!-- 詳細リスト -->
-                    <v-list v-if="step.details" density="compact">
-                      <v-list-item
-                        v-for="(detail, i) in step.details"
-                        :key="i"
-                        prepend-icon="mdi-check"
-                      >
-                        {{ detail }}
-                      </v-list-item>
-                    </v-list>
                   </div>
                 </v-expansion-panel-text>
               </v-expansion-panel>
@@ -216,9 +206,9 @@ const editManual = () => {
               <v-list density="compact">
                 <v-list-item
                   v-for="(step, index) in manual.steps"
-                  :key="step.id"
+                  :key="step.id ?? index"
                   @click="() => {
-                    if (!isStepExpanded(step.id)) {
+                    if (step.id !== undefined && !isStepExpanded(step.id)) {
                       toggleStep(step.id)
                     }
                   }"

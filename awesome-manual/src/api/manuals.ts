@@ -115,7 +115,7 @@ export async function updateManual(
   id: string, 
   manual: Partial<Manual>, 
   thumbnailFile?: File | null,
-  stepImages?: Record<number, { file: File | null }>
+  stepImages?: Record<number, { file: File | null; preview: string }>
 ): Promise<Manual> {
   // FormDataを使って画像も送信
   const hasImages = thumbnailFile || (stepImages && Object.values(stepImages).some(img => img.file))
