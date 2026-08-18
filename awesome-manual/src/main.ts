@@ -1,4 +1,4 @@
-import { createApp, h, provide } from 'vue'
+import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -21,21 +21,7 @@ const vuetify = createVuetify({
   }
 })
 
-// Apollo
-import { DefaultApolloClient } from '@vue/apollo-composable'
-import { ApolloClient, InMemoryCache } from '@apollo/client/core'
-const cache = new InMemoryCache()
-const apolloClient = new ApolloClient({
-  cache,
-  uri: 'http://localhost:3000/graphql',
-})
-
-const app = createApp({
-  setup() {
-    provide(DefaultApolloClient, apolloClient)
-  },
-  render: () => h(App),
-})
+const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)

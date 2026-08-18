@@ -6,6 +6,14 @@ const router = useRouter()
 const goHome = () => {
   router.push('/')
 }
+
+const goToManualList = () => {
+  router.push('/manuals')
+}
+
+const goToManualNew = () => {
+  router.push('/manuals/new')
+}
 </script>
 
 <template>
@@ -17,8 +25,8 @@ const goHome = () => {
       </v-app-bar-title>
       
       <template v-slot:append>
-        <v-btn icon="mdi-magnify" />
-        <v-btn icon="mdi-plus" />
+        <v-btn icon="mdi-magnify" @click="goToManualList" />
+        <v-btn icon="mdi-plus" @click="goToManualNew" />
       </template>
     </v-app-bar>
 
