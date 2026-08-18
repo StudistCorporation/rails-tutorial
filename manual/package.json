@@ -1,5 +1,5 @@
 {
-  "name": "kanban",
+  "name": "manual",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,8 +10,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/",
-    "graphql:codegen": "graphql-codegen --config codegen.yaml"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "pinia": "^3.0.0",
