@@ -19,7 +19,7 @@
     "vuetify": "^4.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node20": "20.1.6",
+    "@tsconfig/node22": "22.0.0",
     "@types/node": "26.6.6",
     "@vitejs/plugin-vue": "6.0.3",
     "@vue/eslint-config-prettier": "10.2.0",
